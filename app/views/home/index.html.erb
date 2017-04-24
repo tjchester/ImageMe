@@ -1,0 +1,106 @@
+<div class="jumbotron">
+  <div class="container">
+    <h1>Image Me!</h1>
+    <p class="lead">
+      Easily generate image imagemeers for your site. Inspired by 
+      <a href="http://placehold.it" target="_new">placehold.it</a> but run locally
+      by you.
+    </p>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="row">    
+    <div class="col-md-3">
+      <h2>Format</h2>
+      <p class="text-justify">
+        The image format can be specified by appending a appropriate file extension
+        to either the size, background color, or foreground color parameters. The 
+        accepted types are "gif", "jpg", "jpeg", and "png". The returned mime-type 
+        in the content header will be "image/FORMAT". The default value is "gif".
+      </p>
+    </div>
+    
+    <div class="col-md-3">
+      <h2>Text</h2>
+      <p class="text-justify">
+        Display text can be specified by using the "text" url parameter with the value you
+        want displayed. The text will appear centered horizontally and vertically. The default
+        text value is the size specified as "width x height". The font size in points is automatically chosen to be 1/10 of the image width.
+      </p>
+    </div>
+    
+    <div class="col-md-3">
+      <h2>Color</h2>
+      <p class="text-justify">
+        Colors are specified in the url paths after the size. The first color is used for
+        the image background and the second color is used for the text foreground. Color
+        values should be specified as their hex RGB values without the leading # sign. The default
+        background color is "cccccc" (light gray) and the default foreground color is "ffffff" (white).
+      </p>
+    </div>
+    
+    <div class="col-md-3">
+      <h2>Size</h2>
+      <p class="text-justify">
+        Size is specified as either <em>width</em> only for a square image or <em>width x height</em> for a rectangle image. The default image size is "300x250".
+      </p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-3">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">/200x150/006633/009933.png</h3>
+        </div>
+        <div class="panel-body">
+          <img src="/200x150/006633/009933.png" />
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">/200x150/FFCC00?text=Hello</h3>
+        </div>
+        <div class="panel-body">
+          <img src="/200x150/FFCC00?text=Hello" />
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">/200x150/6699cc/666699</h3>
+        </div>
+        <div class="panel-body">
+          <image src="/200x150/6699cc/666699"></img>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">/200x150</h3>
+        </div>
+        <div class="panel-body">
+          <img src="/200x150"></img>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="row">
+    <h2 class="text-center">Try Me</h3>
+    <div id="tryme-form"></div>
+  </div>
+</div>
+
+<script>
+  var node = document.getElementById('tryme-form');
+  var app = Elm.ImageMe.embed(node);
+</script>
