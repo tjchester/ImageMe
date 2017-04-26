@@ -1,0 +1,23 @@
+{
+  "name": "imageme",
+  "version": "1.0.0",
+  "description": "An image placeholder generation site written in Rails",
+  "main": "index.js",
+  "dependencies": {
+    "elm": "^0.18.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tjchester/imageme.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tjchester/imageme/issues"
+  },
+  "homepage": "https://github.com/tjchester/imageme#readme"
+}
