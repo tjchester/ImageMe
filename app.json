@@ -6,7 +6,6 @@
     "HTML5",
     "web"
   ],
-  "image": "heroku/ruby",
   "buildpacks": [
     {
       "url": "heroku/nodejs"

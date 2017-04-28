@@ -2,10 +2,8 @@
   "engines": { 
     "node": "7.4.0" 
   },
-  "dependencies": {
-    "elm": "^0.18.0"
-  },
   "scripts": {
-    "preinstall": "npm install -g"
+    "start": "",
+    "preinstall": "npm install -g elm@0.18.0"
   }
 }
