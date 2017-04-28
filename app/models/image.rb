@@ -22,8 +22,17 @@ class Image
     @font_size = @hsize / 10
   end
 
+  def self.imagemagick_installed?
+    Image.found?("magick") || Image.found?("convert")
+  end
+
   def image_data
-    command = "magick -size \"#{@hsize}x#{@vsize}\" canvas:\"##{@bgcolor}\" #{@format}:- 2> /dev/null | magick - -font #{DEFAULT_FONT} -pointsize #{@font_size} -fill \"##{@fgcolor}\" -gravity center -draw \"text 0,0 '#{@text}'\" #{@format}:- 2> /dev/null"
+    if Image.found? "magick" # ImageMagik 7.x
+      command = "magick -size \"#{@hsize}x#{@vsize}\" canvas:\"##{@bgcolor}\" #{@format}:- 2> /dev/null | magick - -font #{DEFAULT_FONT} -pointsize #{@font_size} -fill \"##{@fgcolor}\" -gravity center -draw \"text 0,0 '#{@text}'\" #{@format}:- 2> /dev/null"
+    elsif Image.found? "convert" # ImageMagik 6.x
+      command = "convert -size \"#{@hsize}x#{@vsize}\" xc:\"##{@bgcolor}\" #{@format}:- 2> /dev/null | convert - -font #{DEFAULT_FONT} -pointsize #{@font_size} -fill \"##{@fgcolor}\" -gravity center -draw \"text 0,0 '#{@text}'\" #{@format}:- 2> /dev/null"
+    end
+
     puts command
     data = `#{command}`
 
@@ -67,5 +76,9 @@ private
     vsize = Integer(vsize) rescue "250"
 
     return hsize, vsize
+  end
+
+  def self.found?(program)
+    system("which #{program} > /dev/null 2>&1")
   end
 end
