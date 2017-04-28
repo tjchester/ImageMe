@@ -1,15 +1,9 @@
 {
   "name": "ImageMe",
   "description": "An image placeholder generator for web development.",
-  "keywords": [
-    "rails",
-    "HTML5",
-    "web"
-  ],
+  "keywords": [ "rails", "HTML5", "web" ],
+  "repository": "https://github.com/tjchester/imageme.git",
   "buildpacks": [
-    {
-      "url": "https://github.com/ello/heroku-buildpack-imagemagick.git"
-    },
     {
       "url": "heroku/nodejs"
     },
@@ -17,4 +11,6 @@
       "url": "heroku/ruby"
     }
   ],
+  "success_url": "/",
+  "stack": "cedar-14"
 }
