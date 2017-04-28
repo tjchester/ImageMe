@@ -11,6 +11,14 @@
 
 <div class="container">
 
+  <div class="row">
+    <div class="col-md-12">
+      <% flash.each do |name, msg| %>
+        <%= content_tag(:div, msg, class: "alert alert-#{name} text-center") %>
+      <% end %>
+    </div>
+  </div>
+
   <div class="row">    
     <div class="col-md-3">
       <h2>Format</h2>

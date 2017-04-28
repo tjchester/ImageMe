@@ -2,7 +2,11 @@ class HomeController < ApplicationController
   before_action :handle_extra_data, only: [:image]
 
   def index
-    puts "Inside the index action"
+    if Image.imagemagick_installed?
+      #flash[:success] = "ImageMagick installation detected"
+    else
+      flash[:danger] = "ImageMagick was not detected, images cannot be generated"
+    end
   end
 
   def image
@@ -48,7 +52,7 @@ private
       puts "Extra data has been received."
       if params[:extra_data] =~ /[0..9]/
         params[:size] += params[:extra_data]
-      elsif attributes[:extra_data] =~ /a..zA..Z]/
+      elsif attributes[:extra_data] =~ /[a..zA..Z]/
         params[:format] += params[:extra_data]
       else
         extra_data_array = data.split("/") if data.include? "/"
